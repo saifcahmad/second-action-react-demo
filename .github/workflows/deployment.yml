@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Publish Job Outpurt
         id: publish
-        run: echo "FileName=abcd" >> $GITHUB_OUTPUTS ';'
+        run: echo "FileName=abcd" >> $GITHUB_OUTPUT ';'
 
   deploy:
     needs: build
