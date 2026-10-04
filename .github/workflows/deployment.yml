@@ -15,7 +15,7 @@ jobs:
         id: publish
         run: |
           echo "FileName=abcd" >> $GITHUB_OUTPUT ';'
-          echo "Username1 ${{ env.USERNAME1 }}"
+          echo "Username1 ${{ vars.USERNAME1 }}"
 
   deploy:
     needs: build
@@ -24,4 +24,4 @@ jobs:
       - name: Read Output from Build Job
         run: |
           echo "File Name  ${{ needs.build.outputs.FileName}}"
-          echo "Username1 ${{ env.USERNAME1 }}"
+          echo "Username1 ${{ vars.USERNAME1 }}"
