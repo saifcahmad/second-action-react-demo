@@ -7,21 +7,10 @@ on:
 
 jobs:
   build:
+    environment: testing
     runs-on: ubuntu-latest
-    outputs:
-      FileName: ${{ steps.publish.outputs.FileName }}
     steps:
       - name: Publish Job Outpurt
-        id: publish
         run: |
-          echo "FileName=abcd" >> $GITHUB_OUTPUT ';'
-          echo "Username1 ${{ vars.USERNAME1 }}"
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Read Output from Build Job
-        run: |
-          echo "File Name  ${{ needs.build.outputs.FileName}}"
-          echo "Username1 ${{ vars.USERNAME1 }}"
+          echo "DB PASS ${{ secrets.DB_PASSWORD }}"
+          echo "DB User ${{ vars.DB_USER }}"
