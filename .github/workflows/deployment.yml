@@ -34,3 +34,4 @@ jobs:
           echo "File Name  ${{ needs.build.outputs.FileName}}"
           echo "Username1 ${{ env.USERNAME1 }}"
           echo "Username3 ${{ env.USERNAME3 }}"
+          echo " Run Number $GITHUB_RUN_NUMBER"
