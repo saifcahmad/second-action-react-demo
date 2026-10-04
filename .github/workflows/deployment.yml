@@ -5,13 +5,8 @@ on:
     branches:
       - main
 
-env:
-  USERNAME1: "abcd"
-
 jobs:
   build:
-    env:
-      USERNAME2: "efgh"
     runs-on: ubuntu-latest
     outputs:
       FileName: ${{ steps.publish.outputs.FileName }}
@@ -21,17 +16,12 @@ jobs:
         run: |
           echo "FileName=abcd" >> $GITHUB_OUTPUT ';'
           echo "Username1 ${{ env.USERNAME1 }}"
-          echo "Username2 ${{ env.USERNAME2 }}"
 
   deploy:
     needs: build
-    env:
-      USERNAME3: "ijkl"
     runs-on: ubuntu-latest
     steps:
       - name: Read Output from Build Job
         run: |
           echo "File Name  ${{ needs.build.outputs.FileName}}"
           echo "Username1 ${{ env.USERNAME1 }}"
-          echo "Username3 ${{ env.USERNAME3 }}"
-          echo " Run Number $GITHUB_RUN_NUMBER"
