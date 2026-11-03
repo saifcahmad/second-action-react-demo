@@ -6,7 +6,9 @@ on:
       - main
       - B1
 
-      
+permissions:
+  contents: read
+
 jobs:
   build:
     environment: testing
